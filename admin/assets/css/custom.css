@@ -1,0 +1,69 @@
+button.dt-button, div.dt-button {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 0.333em;
+    margin-bottom: 0.333em;
+    background: #3956f1;
+    padding: -1.5em 1em;
+    border: 1px solid rgb(224 216 216 / 10%);
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 0.88em;
+    line-height: 1.6em;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    /* background-color: rgb(255 255 255); */
+    /* background: -webkit-linear-gradient(top, rgba(230,230,230,0.1) 0%, rgba(0,0,0,0.1) 100%); */
+    background: -moz-linear-gradient(top, #3956f1, #3956f1, 100%);
+    background: -ms-linear-gradient(top, #3956f1, #3956f1, 100%);
+    background: -o-linear-gradient(top, rgba(230,230,230,0.1) 0%, rgba(0,0,0,0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='rgba(230, 230, 230, 0.1)', EndColorStr='rgba(0, 0, 0, 0.1)');
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    outline: none;
+    text-overflow: ellipsis;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    /* padding: .5em 1em; */
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    *cursor: hand;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    background: #3956f1;
+
+    /* border: 1px solid #979797; */
+    background: -webkit-gradient(top, #3956f1, #3956f1, 100%);
+    background: -webkit-linear-gradient(top, #3956f1, #3956f1, 100%);;
+    background: -moz-linear-gradient(top, #3956f1, #3956f1, 100%);;
+    background: -ms-linear-gradient(top, #3956f1, #3956f1, 100%);;
+    background: -o-linear-gradient(top, #3956f1, #3956f1, 100%);;
+    background: linear-gradient(top, #3956f1, #3956f1, 100%);;
+}
+
+.contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 5px solid #fff;
+}
+
+.content i.fa {
+    font-size: 50px;
+}
