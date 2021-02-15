@@ -89,13 +89,12 @@ class Person
 
 
     public function edit($table, $id)
-    {
+    { 
         // $sql = "SELECT * FROM person 
         // JOIN categories ON categories.id = person.cat_id  
         // JOIN media ON media.id = person.media_id  
         // WHERE person.id = " . $id . "  LIMIT 1";
         $sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
-
         $query = $this->db->pdo->prepare($sql);
         $query->execute();
         $results = $query->fetchAll(); 

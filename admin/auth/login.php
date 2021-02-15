@@ -58,12 +58,13 @@ $auth = new Auth();
                     <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-block g-login">
-                      <img class="mr-3" src="../assets/images/file-icons/icon-google.svg" alt="">Log in with Google</button>
+                    <button class="btn btn-block g-login"> 
+                       <span class="text-small font-weight-semibold">Not a member ?</span>
+                       <a href="http://localhost/acManagment/admin/auth/register.php" class="text-black text-small">Create new account</a>
+                    </button>
                   </div>
                   <div class="text-block text-center my-3">
-                    <span class="text-small font-weight-semibold">Not a member ?</span>
-                    <a href="register.html" class="text-black text-small">Create new account</a>
+                    
                   </div>
                 </form>
               </div>

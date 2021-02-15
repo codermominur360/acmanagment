@@ -1,10 +1,10 @@
 <?php 
-include '../../config/AuthSession.php';
-Session::init(); 
+// include '../../config/AuthSession.php';
+// Session::init(); 
 include "../../database/DBconnection.php";
 include "../../controller/Person.php";
 $con = new Person();
-Session::checkSession(); 
+// Session::checkSession(); 
 
     
 ?>

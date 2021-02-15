@@ -1,8 +1,7 @@
 <?php
 error_reporting(0);
 include '../../config/AuthSession.php';
-Session::init(); 
-Session::checkSession(); 
+Session::init();  
 
 ?>
 

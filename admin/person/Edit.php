@@ -38,9 +38,9 @@ $media =new Media();
 
                         if ($_REQUEST['id']) {
                             $id = $_REQUEST['id'];   
-                            $results = $con->edit('person', $id); 
+                            $results = $con->edit("person",$id);  
                             foreach ($results as $result) 
-                            { 
+                            {  
                          ?>
                     <form class="user" action="" method="POST">
                     <input type="text" name="id" value="<?php echo $result['id'] ?>" hidden>
