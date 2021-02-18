@@ -1,13 +1,12 @@
 <?php
-include "../../database/DBconnection.php";
+include "../partials/header.php";
 include "../../controller/Person.php"; 
 include "../../controller/Category.php";
 include "../../controller/Media.php";
 $category =new Category(); 
 $media =new Media(); 
 $con = new Person(); 
-?>
- <?php include "../partials/header.php"?>
+?> 
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -29,7 +28,7 @@ $con = new Person();
                         if (isset($_REQUEST['submit'])) {
                             if ($_SERVER['REQUEST_METHOD'] == 'POST') { ?>
                                 <div class="alert alert-success"><?php echo $con->create($_POST); ?>
-                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"> × </span></button>
                                 </div>
                             <?php } else { ?>
                                 <div class="alert alert-danger">Request Method Invalid!</div>
@@ -43,7 +42,7 @@ $con = new Person();
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Candidate </label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="pname" placeholder="candidate name" require>
+                              <input type="text" class="form-control" name="name" placeholder="candidate name" require>
                             </div>
                           </div>
                         </div>
@@ -171,7 +170,9 @@ $con = new Person();
                           </div>
                         </div>
                       </div>
-                      <button type="submit" class="btn btn-primary btn-block" name="submit" > <i class="fa fa-check"></i> Save </button> 
+                      <input type="submit" class="form-control btn btn-primary btn-block" name="submit"
+                            placeholder="Save" >
+                      <!-- <button type="submit" class="btn btn-primary btn-block" name="submit" > <i class="fa fa-check"></i> Save </button>  -->
                     </form>
                   </div>
                 </div> 

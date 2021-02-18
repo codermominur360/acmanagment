@@ -1,20 +1,9 @@
 <?php
-// include '../../config/Session.php';
-// Session::checkSession(); 
-    include "../../database/DBconnection.php";
-    include "../../controller/Media.php";
-    $con = new Media();
+include "../partials/header.php";
+include "../../controller/Media.php";
+$con = new Media();
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Media</title>
-</head>
-<body>
+?> 
 
     <div class="container">
         <div class="row">
@@ -62,7 +51,4 @@
             <div class="col-md-3"></div>
         </div>
     </div>
-    
-</body>
-</html>
-                
+   

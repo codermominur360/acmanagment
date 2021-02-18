@@ -1,20 +1,13 @@
-<?php
- include '../../config/AuthSession.php';
-Session::init(); 
-include "../../database/DBconnection.php";
+ <?php 
+include "../partials/header.php";
 include "../../controller/Media.php";
-$con = new Media();
-Session::checkSession(); 
-
-
+$con = new Media(); 
 ?>
- <?php include "../partials/header.php"?>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
       <?php include "../partials/navbar.php"; ?>
       <!-- partial -->
-
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
         <?php include "../partials/sidebar.php"?>

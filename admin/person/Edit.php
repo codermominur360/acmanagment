@@ -1,5 +1,5 @@
-<?php
-include "../../database/DBconnection.php";
+<?php 
+include "../partials/header.php";
 include "../../controller/Person.php"; 
 include "../../controller/Category.php";
 include "../../controller/Media.php";
@@ -7,7 +7,6 @@ $con = new Person();
 $category =new Category(); 
 $media =new Media(); 
 ?>
- <?php include "../partials/header.php"?>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -37,8 +36,9 @@ $media =new Media();
                         } 
 
                         if ($_REQUEST['id']) {
-                            $id = $_REQUEST['id'];   
-                            $results = $con->edit("person",$id);  
+                            $id = $_REQUEST['id'];  
+
+                            $results = $con->edit("person",$id);   
                             foreach ($results as $result) 
                             {  
                          ?>
@@ -95,7 +95,6 @@ $media =new Media();
                             </div>
                           </div>
                         </div>
-                        
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Total Amount </label>
@@ -103,8 +102,7 @@ $media =new Media();
                             <input type="number" class="form-control" id="total" name="total_amt"  value="<?php echo $result['total_amt']; ?>" onkeyup="sub()" placeholder="total" require>
                             </div>
                           </div>
-                        </div>
-                         
+                        </div>                         
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Due Amount</label>
@@ -135,6 +133,7 @@ $media =new Media();
                                     </select>
                             </div>
                         </div>  
+                        </div>
                         <div class="col-md-6" >
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Media</label>
@@ -148,7 +147,6 @@ $media =new Media();
                             </div>
                           </div>
                         </div> 
-
                           <div class="col-md-6" hidden>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Gender</label>
@@ -168,8 +166,8 @@ $media =new Media();
                           </div>
                         </div>  
                       <!-- left slide End -->
-                      <input type="submit" value="update" name="update">
-                      <!-- <button type="submit" class="btn btn-primary btn-block" name="submit" > <i class="fa fa-check"></i> Save </button>  -->
+                      <!-- <input type="submit" value="update" name="update"> -->
+                      <button type="submit" class="btn btn-primary btn-block" name="submit" > <i class="fa fa-check"></i> Save </button> 
                     </form>
                     <?php } }?>
                   </div>

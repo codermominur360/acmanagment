@@ -1,9 +1,8 @@
 <?php
-    include "../../database/DBconnection.php";
-    include "../../controller/Media.php";
-    $con = new Media();
-?>
- <?php include "../partials/header.php"?>
+include "../partials/header.php";
+include "../../controller/Person.php";
+$con = new Person();
+?> 
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -18,10 +17,9 @@
           <div class="content-wrapper">
             <?php
                 if ($_REQUEST['id']) {
-                $id = $_REQUEST['id'];
-                $results = $con->details('person',$id ); 
-                foreach ($results as $result) {
-                    print_r($result);
+                $id = $_REQUEST['id'];  
+                $results = $con->details('person',$id );  
+                foreach ($results as $result) { 
             ?>
                         <div class="panel-body card">
                             <div class="table-responsive">

@@ -67,3 +67,16 @@ button.dt-button, div.dt-button {
 .content i.fa {
     font-size: 50px;
 }
+ul.total-col {
+    display: flex;
+    flex-direction: row;
+    place-content: flex-end;
+}
+
+li.total-list {
+    list-style: none;
+    padding: 10px;
+}
+
+
+

@@ -1,9 +1,10 @@
 <?php
 // include '../../config/AuthSession.php'; 
-  // Session::init();
+//   Session::init();
+//   include '../../database/DBconnection.php';
 
  
-// Session::checkSession(); 
+//  Session::checkSession(); 
 
 // Session::get('phone');
 ?>

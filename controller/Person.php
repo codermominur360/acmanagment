@@ -17,9 +17,9 @@ class Person
 
     public function index($table)
     {  
-        $sql ="SELECT * FROM person 
-        join media ON media.id = person.media_id
-        join categories ON categories.id = person.cat_id"; 
+        $sql ="SELECT person.*,media.m_name,categories.category FROM person 
+        LEFT JOIN media ON media.id = person.media_id
+        LEFT JOIN categories ON categories.id = person.cat_id"; 
         $query = $this->db->pdo->prepare($sql);
         $query->execute();
         $results = $query->fetchAll(); 
@@ -28,8 +28,9 @@ class Person
 
     public function create($data)
     {
-     
-        $name = $data['pname'];
+        print_r($data);
+        
+        $name = $data['name'];
         $father = $data['father'];
         $address = $data['address'];
         $univercity = $data['univercity'];
@@ -43,18 +44,19 @@ class Person
         $gender = $data['gender'];
         $result = null;
 
-        if (strlen($name) < 3) {
-            $result = "name too Short";
+        if ($name == '') {
+            $result = "name field  required";
         } elseif ($father == '') {
-            $result = " field  required";
-        } elseif ($media_id == '' && $cat_id == '' ) {
+            $result = "father field  required";
+        } elseif ($media_id == '') {
             $result = "Forentar id emty";
         } else {
 
             $sql = "INSERT INTO person (p_name,father,p_address,univercity,department,semester,total_amt,due_amt,pay_amt,media_id,cat_id,gender) 
-            VALUES(:pname,:father,:address,:univercity,:department,:semester,:total_amt,:due_amt,:pay_amt,:media_id,:cat_id,:gender)";
+            VALUES(:name,:father,:address, :univercity, :department, :semester, :total_amt, :due_amt, :pay_amt, :media_id, :cat_id, :gender)";
+            
             $query = $this->db->pdo->prepare($sql);
-            $query->bindValue('pname', $name);
+            $query->bindValue('name', $name);
             $query->bindValue('father', $father);
             $query->bindValue('address', $address);
             $query->bindValue('univercity', $univercity);
@@ -66,7 +68,8 @@ class Person
             $query->bindValue('media_id', $media_id);
             $query->bindValue('cat_id', $cat_id); 
             $query->bindValue('gender', $gender); 
-            if ($query->execute() == 1) {
+            
+            if ($query->execute( )==1) {
                 $result = "Cadidate Added Successfully !";
             }
             return $result;
@@ -77,24 +80,27 @@ class Person
     
     public function details($table, $id)
     {
-        $sql ="SELECT *  FROM ".$table." 
-        JOIN media ON media.id = person.cat_id
-        JOIN categories ON categories.id = person.cat_id 
-        WHERE person.id = " . $id . " ORDER BY person.id LIMIT";
+     
+        $sql ="SELECT person.*,media.m_name,categories.category  FROM person 
+        LEFT JOIN media ON media.id = person.cat_id
+        LEFT JOIN categories ON categories.id = person.cat_id 
+        WHERE person.id = " . $id . " ORDER BY person.id LIMIT 1";
+        
         $query = $this->db->pdo->prepare($sql);
         $query->execute();
         $results = $query->fetchAll();
+        print_r();die();
         return $results;
     }
 
 
     public function edit($table, $id)
     { 
-        // $sql = "SELECT * FROM person 
-        // JOIN categories ON categories.id = person.cat_id  
-        // JOIN media ON media.id = person.media_id  
-        // WHERE person.id = " . $id . "  LIMIT 1";
-        $sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
+        $sql = "SELECT * FROM person 
+        JOIN categories ON categories.id = person.cat_id  
+        JOIN media ON media.id = person.media_id  
+        WHERE person.id = " . $id . "  LIMIT 1"; 
+        // $sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
         $query = $this->db->pdo->prepare($sql);
         $query->execute();
         $results = $query->fetchAll(); 
@@ -106,7 +112,7 @@ class Person
     public function update($data)
     {
          $id = $data['id'];
-        $name = $data['name'];
+        $name = $data['pname'];
         $father = $data['father'];
         $address = $data['address'];
         $univercity = $data['univercity'];

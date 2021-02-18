@@ -1,8 +1,5 @@
 <?php
-error_reporting(0);
-include '../../config/AuthSession.php';
-Session::init();  
-
+Session::checkSession();  
 ?>
 
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">

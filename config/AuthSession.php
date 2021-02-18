@@ -23,7 +23,7 @@ class Session
     //End set function
 
     public static function get($key)
-    {
+    { 
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         } else {

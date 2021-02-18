@@ -1,12 +1,8 @@
-<?php include '../../config/AuthSession.php';
-Session::init(); 
-include "../../database/DBconnection.php";
+<?php include "../partials/header.php";
 include "../../controller/Category.php";
 
 $con = new Category();
-Session::checkSession(); 
 ?>
- <?php include "../partials/header.php"?>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->

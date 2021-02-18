@@ -1,9 +1,9 @@
 <?php
-    include "../../database/DBconnection.php";
-    include "../../controller/Category.php";
-    $con = new Category();
+include "../partials/header.php"; 
+include "../../controller/Category.php";
+$con = new Category();
 ?>
- <?php include "../partials/header.php"?>
+ 
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->

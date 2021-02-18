@@ -1,12 +1,9 @@
 <?php
-// include '../../config/Session.php';
-// Session::checkSession(); 
-include "../../database/DBconnection.php";
+include "../partials/header.php";
 include "../../controller/Media.php";
 $con = new Media();
 
- ?>
- <?php include "../partials/header.php"?>
+ ?> 
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
