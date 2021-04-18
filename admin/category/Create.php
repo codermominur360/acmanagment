@@ -3,7 +3,7 @@ include "../partials/header.php";
 include "../../controller/Category.php";
 $con = new Category();
 ?>
- 
+ <title> create </title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->

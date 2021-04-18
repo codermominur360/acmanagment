@@ -38,18 +38,18 @@ class Session
         if (self::get('login') == false) {
             self::destroy();
             echo "Please Login First";
-            echo "<script>location.href='http://localhost/acManagment/admin/auth/login.php'</script>"; 
+            echo "<script>location.href='http://localhost/row/acManagment/admin/auth/login.php'</script>"; 
         }
     }
     public static function checklogin(){
         if(self::get('login') == true){
             echo "check login Status";
-            echo "<script>location.href='http://localhost/acManagment/admin/layout/app.php'</script>";
+            echo "<script>location.href='http://localhost/row/acManagment/admin/layout/app.php'</script>";
         }
     }
     public static function destroy(){
         session_destroy();
         session_unset();
-        echo "<script>location.href='http://localhost/acManagment/admin/auth/login.php'</script>";
+        echo "<script>location.href='http://localhost/row/acManagment/admin/auth/login.php'</script>";
     }
 }

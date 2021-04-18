@@ -1,18 +1,17 @@
 <?php
 include "../partials/header.php";
+include "../partials/navbar.php";
 include "../../controller/Person.php"; 
 include "../../controller/Category.php";
 include "../../controller/Media.php";
+
+$con = new Person();  
 $category =new Category(); 
 $media =new Media(); 
-$con = new Person(); 
+
 ?> 
+<title> create </title>
     <div class="container-scroller">
-
-      <!-- partial:partials/_navbar.html -->
-      <?php include "../partials/navbar.php"; ?>
-      <!-- partial -->
-
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
       <?php include "../partials/sidebar.php"?>
@@ -42,7 +41,7 @@ $con = new Person();
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Candidate </label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="name" placeholder="candidate name" require>
+                              <input type="text" class="form-control" name="candidate_name" placeholder="candidate name" require>
                             </div>
                           </div>
                         </div>
@@ -51,6 +50,23 @@ $con = new Person();
                             <label class="col-sm-3 col-form-label">Father Name</label>
                             <div class="col-sm-9">
                               <input type="text" class="form-control" name="father" placeholder="father name" require>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Phone Number</label>
+                            <div class="col-sm-9">
+                              <input type="number" class="form-control" name="p_phone" placeholder="phone number" require>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Address </label>
+                            <div class="col-sm-9"> 
+                                <textarea name="address" id="" cols="40" rows="1" require></textarea>
                             </div>
                           </div>
                         </div>
@@ -69,31 +85,31 @@ $con = new Person();
                                     </select>
                             </div>
                           </div>
-                        </div>
+                        </div>                       
                         <div class="col-md-6">
                           <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address </label>
-                            <div class="col-sm-9"> 
-                                <textarea name="address" id="" cols="40" rows="1" require></textarea>
+                            <label class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                                <?php $results = $category->index("categories");   ?>
+                                <select class="form-control" name="cat_id" id="" required>
+                                    <option value="">Select Media Name </option>
+                                    <?php foreach ($results as $result) { ?>
+                                        <option value="<?php echo $result['id']; ?>"><?php echo str_replace('_',' ',$result['category']); ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-6">
+                      <div class="col-md-6">
                           <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Category</label>
-                            <div class="col-sm-9">
-                                    <?php $results = $category->index("categories");   ?>
-                                    <select class="form-control" name="cat_id" id="" required>
-                                        <option value="">Select Media Name </option>
-                                        <?php foreach ($results as $result) { ?>
-                                            <option value="<?php echo $result['id']; ?>"><?php echo str_replace('_',' ',$result['category']); ?></option>
-                                        <?php } ?>
-                                    </select>
+                            <label class="col-sm-3 col-form-label">Date </label>
+                            <div class="col-sm-9"> 
+                            <input type="date" class="form-control" name="date" value="/Carbon/Date::now()" require>
                             </div>
                           </div>
-                        </div>
+                        </div> 
                         <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Membership</label>
@@ -125,9 +141,9 @@ $con = new Person();
                         </div>
                         <div class="col-md-6">
                           <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Univercity</label>
+                          <label class="col-sm-3 col-form-label">University</label>
                             <div class="col-sm-9">
-                            <input type="text" class="form-control" name="univercity" placeholder="univercity" require>
+                            <input type="text" class="form-control" name="university" placeholder="university" require>
                             </div>
                           </div>
                         </div>
@@ -156,8 +172,7 @@ $con = new Person();
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Due Amount</label>
                             <div class="col-sm-9">
-                            <input type="number" class="form-control" name="due_amt"
-                            id="due" onkeyup="sub()" placeholder="Due" disabled require>
+                            <input type="text" class="form-control" name="due_amt" id="due" onkeyup="sub()" placeholder="Due"  >
                             </div>
                           </div>
                         </div>
@@ -169,8 +184,8 @@ $con = new Person();
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <input type="submit" class="form-control btn btn-primary btn-block" name="submit"
+                      </div> 
+                      <input type="submit" name="submit" class="form-control btn btn-primary btn-block"
                             placeholder="Save" >
                       <!-- <button type="submit" class="btn btn-primary btn-block" name="submit" > <i class="fa fa-check"></i> Save </button>  -->
                     </form>
@@ -179,7 +194,7 @@ $con = new Person();
         <!-- content-wrapper ends -->
         </div>
 <!-- partial:partials/_footer.html -->
-<?php include "../partials/footer.php"?> 
+<?php include "../partials/footer.php"; ?> 
 
 <script>
    
@@ -189,8 +204,8 @@ $con = new Person();
             var dueAmount= document.getElementById('due').value = totalAmount - paidAmount
 
             let text = 'neg sign not accepted';
-            if(dueAmount <0 ){
-               document.getElementById("due").context = "neg sign!";
+            if(dueAmount < 0 ){
+               document.getElementById("due").context = "000";
             }
 
         }

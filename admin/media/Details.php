@@ -3,6 +3,7 @@ include "../partials/header.php";
 include "../../controller/Media.php";
 $con = new Media();
 ?> 
+<title> details </title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -30,7 +31,7 @@ $con = new Media();
                                         <th>Name</th>
                                         <th>Occupation</th>
                                         <th>Address</th>
-                                        <th>Create At</th> 
+                                        <th>Update Date</th> 
                                     </tr>
                                     </thead>
                                     <tbody>

@@ -2,9 +2,8 @@
 include "../partials/header.php";
 include "../../controller/Person.php";
 $con = new Person(); 
-
-
 ?>
+<title> candidate list  </title>
 <style>
 
 ul.total-col {
@@ -34,7 +33,6 @@ li.total-list.due {
     color: #fff;
     font-size: 17px;
 }
-
 </style>
 <div class="container-scroller">
   <!-- partial:partials/_navbar.html -->
@@ -53,7 +51,7 @@ li.total-list.due {
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered S"   id="example" class="display nowrap">
+                <table class="table table-bordered S" id="example" class="display nowrap">
                     <thead >
                         <tr >
                             <th>Sl</th> 
@@ -65,6 +63,7 @@ li.total-list.due {
                             <th>Total</th> 
                             <th>Payment</th> 
                             <th>Due Amt</th> 
+                            <th>Date</th> 
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -89,6 +88,7 @@ li.total-list.due {
                             <td ><?php echo str_replace("_", " ", $result['total_amt']) ?></td> 
                             <td><?php echo str_replace("_", " ", $result['pay_amt']) ?></td> 
                             <td><?php echo str_replace("_", " ", $result['due_amt']) ?></td> 
+                            <td><?php echo $result['date']; ?></td> 
                             <td>
                                 <a href="Edit.php?id=<?php echo $result['id'] ?>"  class="text-warning "> <i class="fa fa-pencil-square-o"></i> </a>
                                 <a href="Details.php?id=<?php echo $result['id']?>" class="text-info"><i class="fa fa-eye"></i></a>

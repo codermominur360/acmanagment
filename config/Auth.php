@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 include '../../database/DBconnection.php';
 $con = new Database();
 
@@ -30,7 +31,7 @@ class Auth
             Session::set("phone", $result->phone);
             Session::set("fullname", $result->fullname); 
             Session::set("loginmsg", "<div class='alert alert-success'><strong>Success ! </strong>You are logged in.   <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">×</span></button> </div>" );
-            echo "<script>location.href='http://localhost/acManagment/admin/layout/app.php'</script>";
+            echo "<script>location.href='http://localhost/row/acManagment/admin/layout/app.php'</script>";
         } else {
             $msg = "<div class='alert alert-danger'><strong>Error !</strong> Email Or Password Wrong ! Try Again!</div>";
             return $msg;

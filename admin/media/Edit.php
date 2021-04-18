@@ -2,8 +2,7 @@
 include "../partials/header.php";
 include "../../controller/Media.php";
 $con = new Media();
-
- ?> 
+ ?> <title> edit </title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -27,41 +26,41 @@ $con = new Media();
                                     <button type="button" class="close" data-dismiss="alert"><span
                                                 aria-hidden="true">×</span></button>
                                 </div>
-
-
                             <?php } else { ?>
                                 <div class="alert alert-danger">Request Method Invalid!</div>
                             <?php }
                         }
                         if ($_REQUEST['id']) {
-                        $id = $_REQUEST['id'];
-                        $results = $con->edit('media', $id);
-                        foreach ($results as $result) {
+                        $id = $_REQUEST['id']; 
+                        $results = $con->edit('media', $id); 
+                        foreach ($results as $result) { 
                     ?>
                     <h4 class="card-title">Media</h4>
                     <p class="card-description"> Edit Media</p>
-                    <form class="user" action="Index.php" method="POST">
+                    <form class="user" action="" method="POST">
                             <input type="text" name="id" value="<?php echo $result['id'] ?>" hidden>
                             <div class="form-group">
                                 <label for="exampleInputName1">Media Name</label>
                                 <input type="text" class="form-control"
-                                                value="<?php echo str_replace("_", " ", $result['m_name']) ?>" name="name"
-                                                id="exampleFirstName"
+                                                value="<?php echo str_replace("_", " ", $result['m_name']) ?>" name="mname"
                                                 placeholder="Enter Media Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail3">Occupation</label>
                                     <input type="text" class="form-control"
-                                                    value="<?php echo str_replace("_", " ", $result['occupation']) ?>" name="occupation"
-                                                    id="exampleFirstName"
-                                                    placeholder="Enter Occupation Name">
+                                                    value="<?php echo str_replace("_", " ", $result['occupation']) ?>" name="occupation">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail3">Phone</label>
+                                    <input type="text" class="form-control"
+                                                    value="<?php echo str_replace("_", " ", $result['m_phone']) ?>" name="m_phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword4">Address</label>
-                                    <textarea name="address" id="" cols="100%" rows="3"> <?php echo str_replace("_", " ", $result['m_address']) ?>
+                                    <textarea name="m_address" id="" cols="100%" rows="3"> <?php echo str_replace("_", " ", $result['m_address']) ?>
                                     </textarea>
                                 </div> 
-                            <input type="submit" class="btn  btn-info btn-block text-light btn-user" name="update" value="Media Updated"/>
+                            <input type="submit" class="btn  btn-info btn-block text-light " name="update" value="Media Updated"/>
                             </form>
                         </div>
                         </div>

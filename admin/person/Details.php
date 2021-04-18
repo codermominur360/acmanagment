@@ -3,6 +3,7 @@ include "../partials/header.php";
 include "../../controller/Person.php";
 $con = new Person();
 ?> 
+<title> details </title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -19,44 +20,42 @@ $con = new Person();
                 if ($_REQUEST['id']) {
                 $id = $_REQUEST['id'];  
                 $results = $con->details('person',$id );  
-                foreach ($results as $result) { 
+                foreach ($results as $result) {  
             ?>
-                        <div class="panel-body card">
+                        <div class="card-header">
+                        <h3> <i class="fa fa-user-circle"></i> <b><?php echo $result['p_name']?> </b> Details Information</h3>
+                            <span>University : <b><?php echo $result['univercity']?></b></span>
+                            <span> Depatment: <b><?php echo $result['department']?></b> ( <?php echo $result['semester']?>)</span>
+                        </div>
+                        <div class="card-body  ">                 
                             <div class="table-responsive">
-                                <table class="table table-bordered text-center">
-                                    <thead>
+                                <table class="table table-borderless">  
+                                    <tbody> 
                                     <tr>
-                                        <th>id</th>
-                                        <th>Candidate Name</th>
-                                        <th>Father</th>
-                                        <th>Media Name</th>
-                                        <th>Category</th>
-                                        <th>Address</th>
-                                        <th>Unvercity</th>
-                                        <th>Department</th>
-                                        <th>Semester</th>
-                                        <th>Total Amount</th>
-                                        <th>Pay Amount</th>
-                                        <th>Due Amount</th>  
-                                    </tr> 
-                                    </thead>
-                                    <tbody>
-                                    <tr >
-                                    <td><?php echo $result['id']?></td>
-                                        <td><?php echo $result['p_name']?></td>
-                                        <td><?php echo $result['father']?></td>
-                                        <td><?php echo $result['m_name']?></td> 
-                                        <td><?php echo $result['category']?></td> 
-                                        <td><?php echo $result['p_address']?></td> 
-                                        <td><?php echo $result['univercity']?></td> 
-                                        <td><?php echo $result['department']?></td> 
-                                        <td><?php echo $result['semester']?></td> 
-                                        <td><?php echo $result['total_amt']?></td> 
-                                        <td><?php echo $result['pay_amt']?></td> 
-                                        <td><?php echo $result['due_amt']?></td>  
+                                        <td  > Father Name : <?php echo $result['father']?></td>
                                     </tr>
-                                    </tbody>
+                                    <tr>
+                                        <td> Address : <?php echo $result['p_address']?></td>
+                                    </tr>  
+                                    <tr>
+                                        <td> Mobile Number : <?php echo $result['p_phone']?></td>
+                                    </tr>  
+                                    <tr > 
+                                         <td> Media Name: <?php echo $result['m_name']?></td> 
+                                        <td>Category Name : <?php echo $result['category']?></td>  
+                                    </tr>
+                                    <tr>
+                                        <td> Total Amount : <?php echo $result['total_amt']?></td> 
+                                        <td> Payment Amount : <?php echo $result['pay_amt']?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td> Due Amount : <?php echo $result['due_amt']?></td>  
+                                    </tr>
+                                    </tbody> 
                                 </table>
+                                <div class="card-footer">
+                                        <p> <i class="fa fa-user"></i> Candidate All Information About Here ...</p>
+                                    </div>
                                 <a href="Index.php" class="btn bg-primary text-white"> <i class="fa fa-arrow-left"> Back</i></a>
                             </div>
                         </div>

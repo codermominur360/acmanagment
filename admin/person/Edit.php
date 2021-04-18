@@ -7,6 +7,7 @@ $con = new Person();
 $category =new Category(); 
 $media =new Media(); 
 ?>
+<title> edit </title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -37,45 +38,42 @@ $media =new Media();
 
                         if ($_REQUEST['id']) {
                             $id = $_REQUEST['id'];  
-
                             $results = $con->edit("person",$id);   
                             foreach ($results as $result) 
                             {  
                          ?>
                     <form class="user" action="" method="POST">
                     <input type="text" name="id" value="<?php echo $result['id'] ?>" hidden>
-
+                    
                       <p class="card-description"> Personal info </p>
                       <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Candidate </label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" name="pname" value="<?php echo $result['p_name'] ?>" placeholder="candidate name" require readonly>
+                        <div class="col-md-4">
+                          <div class="form-group row"> 
+                            <div class="col-sm-11">
+                            <label for=""> Person Name</label>
+                              <input type="text" class="form-control" name="p_name" value="<?php echo $result['p_name'] ?>" require  >
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                        <div class="form-group row"> 
+                        <label for="">Univercity</label>
+                            <div class="col-sm-11">
+                            <input type="text" class="form-control "  name="university"  value="<?php echo $result['univercity'] ?>" require   >
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Father Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" name="father" value="<?php echo $result['father'] ?>"  placeholder="father name" require readonly>
+                            <div class="col-sm-11">
+                              <input type="text" class="form-control" name="father" value="<?php echo $result['father'] ?>"  require  >
                             </div>
                           </div>
-                        </div> 
-                        <div class="col-md-6" >
+                        </div>  
+                        <div class="col-md-4">
                           <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Univercity</label>
-                            <div class="col-sm-9">
-                            <input type="text" class="form-control "  name="univercity"  value="<?php echo $result['univercity'] ?>"  placeholder="univercity" require readonly >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address </label>
-                            <div class="col-sm-9"> 
-                                <textarea name="address" cols="40" rows="1" require readonly><?php echo $result['p_address']?></textarea>
+                              <label for="">Address</label>
+                            <div class="col-sm-11"> 
+                                <textarea name="address" cols="35" rows="1" require  ><?php echo $result['p_address']?></textarea>
                             </div>
                           </div>
                         </div>
@@ -83,7 +81,15 @@ $media =new Media();
                           <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Department</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="department"  value="<?php echo $result['department']; ?>"  placeholder="department" readonly>
+                              <input type="text" class="form-control" name="department"  value="<?php echo $result['department']; ?>" >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Phone</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="p_phone"  value="<?php echo $result['p_phone']; ?>">
                             </div>
                           </div>
                         </div>
@@ -91,7 +97,7 @@ $media =new Media();
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Semester</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="semester"  value="<?php echo $result['semester'] ?>"  placeholder="semester" require>
+                              <input type="text" class="form-control" name="semester"  value="<?php echo $result['semester'] ?>" require  >
                             </div>
                           </div>
                         </div>
@@ -107,8 +113,8 @@ $media =new Media();
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Due Amount</label>
                             <div class="col-sm-9">
-                            <input type="number" class="form-control" name="due_amt" value="<?php echo $result['due_amt'] ?>" 
-                            id="due" onkeyup="sub()" placeholder="Due" disabled require>
+                              <input type="number" class="form-control" name="due_amt" value="<?php echo $result['due_amt'] ?>" 
+                              id="due" onkeyup="sub()"  >
                             </div>
                           </div>
                         </div>
@@ -117,57 +123,55 @@ $media =new Media();
                             <label class="col-sm-3 col-form-label">Payment</label>
                             <div class="col-sm-9">
                               <input type="number" class="form-control" name="pay_amt" value="<?php echo $result['pay_amt']?>"  
-                              id="payment" onkeyup="sub()" placeholder="payment" >
+                              id="payment" onkeyup="sub()"   >
                             </div>
                           </div>
                         </div>
+                        <div class="col-md-6" >
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Date</label>
+                            <div class="col-sm-9">
+                              <input type="date" class="form-control" name="date" value="<?php echo $result['date']?>">
+                            </div>
+                          </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Gender</label>
+                                  <input type="text" name="gender" value="<?php echo $result['gender']?>" readonly   >
+                              </div>
+                          </div>
+                        </div>  
+                        <div class="row">
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Category</label>
                             <div class="col-sm-9">
-                                    <?php $results = $category->index("categories");   ?>
-                                    <select class="form-control" name="cat_id" id="" required>
-                                         <?php foreach ($results as $result) { ?>
-                                            <option value="<?php echo $result['id']; ?>"><?php echo str_replace('_',' ',$result['category']); ?></option>
-                                        <?php } ?>
-                                    </select>
+                                <?php $categories = $category->index("categories");   ?>
+                                <select class="form-control" name="cat_id" id="" required>
+                                     <?php foreach ($categories as $category) { ?>
+                                        <option value="<?php echo $category['id']; ?>"><?php echo str_replace('_',' ',$category['category']); ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
-                        </div>  
-                        </div>
+                          </div>  
+                        </div> 
                         <div class="col-md-6" >
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Media</label>
                             <div class="col-sm-9">
-                                <?php $results = $category->index("media");   ?>
-                                    <select class="form-control" name="media_id" id="" required> 
-                                        <?php foreach ($results as $result) { ?>
-                                            <option value="<?php echo $result['id']; ?>"><?php echo str_replace('_',' ',$result['m_name']); ?></option>
-                                <?php } ?>
-                                    </select>
+                                <?php $medias = $media->index("media");   ?>
+                                <select class="form-control" name="media_id" id="" required> 
+                                  <?php foreach ($medias as $media) { ?>
+                                  <option value="<?php echo $media['id']; ?>"><?php echo str_replace('_',' ',$media['m_name']); ?></option>
+                                  <?php } ?>
+                                </select>
                             </div>
                           </div>
                         </div> 
-                          <div class="col-md-6" hidden>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Gender</label>
-                                  <div class="col-sm-4">
-                                    <div class="form-radio " >
-                                      <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="gender" id="membershipRadios1" value="<?php echo $result['gender']; ?>"  checked=""> Male <i class="input-helper"></i></label>
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-5">
-                                    <div class="form-radio">
-                                      <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="gender" id="membershipRadios2"  value="<?php echo $result['gender']; ?>" > Fe-Male <i class="input-helper"></i></label>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>  
+                        </div>
+                         
                       <!-- left slide End -->
                       <!-- <input type="submit" value="update" name="update"> -->
-                      <button type="submit" class="btn btn-primary btn-block" name="submit" > <i class="fa fa-check"></i> Save </button> 
+                      <button type="submit" class="btn btn-primary btn-block" name="update" > <i class="fa fa-check"></i> Save </button> 
                     </form>
                     <?php } }?>
                   </div>

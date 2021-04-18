@@ -1,8 +1,8 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-  <ul class="nav">
-    <li class="nav-item nav-category">Personal Acount Managment</li>
+  <ul class="nav p-fixed">
+    <li class="nav-item nav-category">Personal Account Managment</li>
     <li class="nav-item">
-      <a class="nav-link" href="http://localhost/acManagment/admin/layout/app.php">
+      <a class="nav-link" href="http://localhost/row/acManagment/admin/layout/app.php">
         <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">Dashboard</span>
       </a>
@@ -16,10 +16,10 @@
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/acManagment/admin/category/">Category</a>
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/category/">Category</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/acManagment/admin/media/">Media</a>
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/media/">Media</a>
           </li>
         </ul>
       </div>
@@ -33,18 +33,33 @@
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/acManagment/admin/person/"> Candidate List </a>
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/person/"> Candidate List </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/acManagment/admin/person/Create.php"> New Candidate </a>
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/person/Create.php"> New Candidate </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/person/Collected.php">Collected </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/person/Provided.php"> Provided </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/row/acManagment/admin/person/CollectProvid.php"> C & P List </a>
           </li> 
         </ul>
       </div>
+    </li>  
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost/row/acManagment/admin/depodit/">
+        <i class="menu-icon typcn typcn-user-outline"></i>
+        <span class="menu-title">Share Blance</span>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="http://localhost/acManagment/admin/user/">
+      <a class="nav-link" href="http://localhost/row/acManagment/admin/expense/">
         <i class="menu-icon typcn typcn-user-outline"></i>
-        <span class="menu-title">User</span>
+        <span class="menu-title">Expense</span>
       </a>
     </li>
   </ul>

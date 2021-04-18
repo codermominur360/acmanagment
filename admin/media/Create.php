@@ -4,7 +4,7 @@ include "../../controller/Media.php";
 $con = new Media();
 
 ?> 
-
+<title> create </title>
     <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
@@ -24,23 +24,22 @@ $con = new Media();
                         <form class="user" action="" method="POST">
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <label for="">Name</label>
-                                    <input type="text" class="form-control" required name="mname" id="exampleFirstName"
-                                           placeholder="Enter Media Name">
+                                    <input type="text" class="form-control" required name="mname" placeholder="Media Name">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <label for="">occupation</label>
-                                    <input type="text" class="form-control" required name="occupation" id="exampleFirstName"
-                                           placeholder="Enter occupation Name">
+                                    <input type="text" class="form-control" required name="occupation" placeholder="Occupation Name">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <label for="">address</label>
-                                    <input type="text" class="form-control" required name="address" id="exampleFirstName"
-                                           placeholder="Enter address Name">
+                                <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                    <input type="text" class="form-control" required name="m_phone" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                    <input type="text" class="form-control" required name="address" placeholder="Address....">
                                 </div>
                             </div>
 

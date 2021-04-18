@@ -3,6 +3,7 @@ include "../partials/header.php";
 include "../../controller/Media.php";
 $con = new Media(); 
 ?>
+<title> media </title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -32,24 +33,23 @@ $con = new Media();
 
                         <form class="user" action="" method="POST">
                             <div class="form-group row">
-                                <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <label for="">Name</label>
-                                    <input type="text" class="form-control" required name="mname" id="exampleFirstName"
-                                           placeholder="Enter Media Name">
+                                <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                    <input type="text" class="form-control" required name="mname"placeholder="Media Name">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <label for="">occupation</label>
-                                    <input type="text" class="form-control" required name="occupation" id="exampleFirstName"
-                                           placeholder="Enter occupation Name">
+                                <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                    <input type="text" class="form-control" required name="occupation" placeholder="Occupation Name">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <label for="">address</label>
-                                    <input type="text" class="form-control" required name="address" id="exampleFirstName"
-                                           placeholder="Enter address Name">
+                                <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                    <input type="text" class="form-control" required name="m_phone" placeholder="+88 017XXXXXXXX">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                    <input type="text" class="form-control" required name="address" placeholder="Address...">
                                 </div>
                             </div>
 
@@ -66,6 +66,7 @@ $con = new Media();
                                             <th>Sl</th> 
                                             <th>Name</th>
                                             <th>occupation</th>
+                                            <th>phone</th>
                                             <th>address</th>
                                             <th>Action</th>
                                         </tr>
@@ -81,6 +82,7 @@ $con = new Media();
                                                 <td><?php echo $i++ ?></td>
                                                 <td><?php echo str_replace("_", " ", $result['m_name']) ?></td>
                                                 <td><?php echo str_replace("_", " ", $result['occupation']) ?></td>
+                                                <td><?php echo str_replace("_", " ", $result['m_phone']) ?></td>
                                                 <td><?php echo str_replace("_", " ", $result['m_address']) ?></td> 
                                                 <td>
                                                     <a href="Edit.php?id=<?php echo $result['id'] ?>"  class="text-warning "> <i class="fa fa-pencil-square-o"></i> </a>

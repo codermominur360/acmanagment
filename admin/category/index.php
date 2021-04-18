@@ -3,6 +3,7 @@ include "../../controller/Category.php";
 
 $con = new Category();
 ?>
+<title> category</title>
     <div class="container-scroller">
 
       <!-- partial:partials/_navbar.html -->
@@ -86,7 +87,7 @@ $con = new Category();
                                                 <td class="<?php echo ($result['status'] == 1) ? 'text-info' : 'text-danger' ?>"><?php echo ($result['status'] == 1) ? 'Active' : 'De-Active' ?></td>
                                                 <td><?php echo $result['create_at'] ?></td>
                                                 <td>
-                                                    <a href="Edit.php?id=<?php echo $result['id'] ?>"  class="text-warning "> <i class="fa fa-pencil-square-o"></i> </a>
+                                                    <a href="Edit.php?id=<?php echo $result['id'] ?>"  class="text-warning " data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="fa fa-pencil-square-o"></i> </a>
                                                     <a href="Details.php?id=<?php echo $result['id']?>" class="text-info"><i class="fa fa-eye"></i></a>
                                                     <a href=" ?del=delete&id=<?php echo $result['id']?>" class="text-danger" id="deleteAlert" onclick="deleteDate().value;"><i class="fa fa-trash-o"></i></a>
                                                     
